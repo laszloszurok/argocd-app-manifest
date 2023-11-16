@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: argocd-test
+  name: argocd-test
+  annotations:
+    oci.oraclecloud.com/load-balancer-type: "lb"
+    oci-network-load-balancer.oraclecloud.com/is-preserve-source: "true"
+    service.beta.kubernetes.io/oci-load-balancer-shape: "flexible"
+    service.beta.kubernetes.io/oci-load-balancer-shape-flex-min: "10"
+    service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: "400"
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: argocd-test
+  type: LoadBalancer

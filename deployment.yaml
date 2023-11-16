@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: argocd-test
+  name: argocd-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: argocd-test
+  template:
+    metadata:
+      labels:
+        app: argocd-test
+    spec:
+      containers:
+        - name: argocd-test
+          image: eu-frankfurt-1.ocir.io/fr9e19vu73mf/argocd-test:0
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: imagepullsecret
