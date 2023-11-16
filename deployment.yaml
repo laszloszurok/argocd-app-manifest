@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: argocd-test
-          image: eu-frankfurt-1.ocir.io/fr9e19vu73mf/argocd-test:0
+          image: eu-frankfurt-1.ocir.io/fr9e19vu73mf/argocd-test:4
           ports:
             - containerPort: 80
       imagePullSecrets:
